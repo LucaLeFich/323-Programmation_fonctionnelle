@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Runtime.CompilerServices;
 
 public class MarcheItems
 {
@@ -96,15 +92,34 @@ class Program
             new MarcheItems { Emplacement = 15, Producteur = "Crizzi", Produit = "Groseilles", Quantite = 12, Unite = "kg", PrixParUnite = 3.50 }
         };
 
-        // Example LINQ: All Pommes cheaper than 5 per kg
-        var vendeursPêches = marche
-            .Count(item => item.Produit == "Pêches");
-        Console.WriteLine($"Il y a {vendeursPêches} vendeurs de Pêches.");
+        // var vendeursPêches = marche
+        //     .Count(item => item.Produit == "Pêches");
+        // Console.WriteLine($"Il y a {vendeursPêches} vendeurs de Pêches.");
 
-        var MaxPastèque = marche
-            .Where(item => item.Produit == "Pastèques")
-            .OrderByDescending(item => item.Quantite)
-            .First();
-        Console.WriteLine($"C'est {MaxPastèque.Producteur} qui a le plus de pastèques (stand {MaxPastèque.Emplacement}, {MaxPastèque.Quantite} pièces).");
+        // var MaxPastèque = marche
+        //     .Where(item => item.Produit == "Pastèques")
+        //     .OrderByDescending(item => item.Quantite)
+        //     .First();
+        // Console.WriteLine($"C'est {MaxPastèque.Producteur} qui a le plus de pastèques (stand {MaxPastèque.Emplacement}, {MaxPastèque.Quantite} pièces).");
+
+        int pastèques = 0;
+        int MaxPastèque = 0;
+        string? VendeurMaxPastèque = null;
+        foreach (var item in marche)
+        {
+            if (item.Produit == "Pastèques")
+            {
+                pastèques += (int)item.Quantite;
+            }
+
+            if (item.Produit == "Pastèques" && item.Quantite > MaxPastèque)
+            {
+                MaxPastèque = (int)item.Quantite;
+                VendeurMaxPastèque = item.Producteur;
+            }
+        }
+
+        Console.WriteLine($"Il y a {pastèques} pastèques.");
+        Console.WriteLine($"{VendeurMaxPastèque} à {MaxPastèque}.");
     }
 }
