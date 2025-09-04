@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice marché", "Exercice marché\Exercice marché.csproj", "{83973D3B-E901-401A-BE05-0B86BE7D058E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Words", "Words\Words.csproj", "{98D56D6F-DB3B-42B0-9AE0-8694F8FDF304}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,9 +14,9 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{83973D3B-E901-401A-BE05-0B86BE7D058E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{83973D3B-E901-401A-BE05-0B86BE7D058E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{83973D3B-E901-401A-BE05-0B86BE7D058E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{83973D3B-E901-401A-BE05-0B86BE7D058E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98D56D6F-DB3B-42B0-9AE0-8694F8FDF304}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98D56D6F-DB3B-42B0-9AE0-8694F8FDF304}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98D56D6F-DB3B-42B0-9AE0-8694F8FDF304}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98D56D6F-DB3B-42B0-9AE0-8694F8FDF304}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
