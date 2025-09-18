@@ -137,7 +137,15 @@ class Program
         foreach (var product in translatedProducts)
         {
             Console.WriteLine(product.Product);
+        }
 
+        List<double> chiffreAffaires = marche.Select(
+            (productInfo) => productInfo.Quantite * productInfo.PrixParUnite
+        ).ToList();
+
+        foreach (var ca in chiffreAffaires)
+        {
+            Console.WriteLine($"\n{ca} CHF");
         }
     }
 }
