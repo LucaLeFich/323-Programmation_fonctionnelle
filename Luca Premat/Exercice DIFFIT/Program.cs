@@ -4,16 +4,18 @@
 //Descr. : Entraînement au test 323
 //         Cet outil permet de comparer 2 fichiers (avec le même nombre de lignes) ligne par ligne et indiquer les différences... Il permet aussi de faire du chiffrement
 
+using System.Runtime.Intrinsics;
+
 ///MENU
 Console.WriteLine("+--------------------------------+");
 Console.WriteLine("|DIFFIT : A very limited DIFFTOOL|");
 Console.WriteLine("+--------------------------------+");
 
 Console.Write("Fichier A: ");
-string? pathA = Console.ReadLine();
+string? pathA = @"D:\323- programation fonctionnelle\323-Programmation_fonctionnelle\Luca Premat\Exercice DIFFIT\v1.txt";
 
 Console.Write("Fichier B: ");
-string? pathB = Console.ReadLine();
+string? pathB = @"D:\323- programation fonctionnelle\323-Programmation_fonctionnelle\Luca Premat\Exercice DIFFIT\v2.txt";
 
 // Vérification des entrées utilisateur
 var paths = new string?[] { pathA, pathB };
@@ -26,13 +28,13 @@ if (!filesAreValid)
 
 /// CHARGEMENT DES DONNÉES
 // TODO: 01 Charger le contenu texte du fichier A (indice: File.ReadAllLines...)
-string[] linesA = { File.ReadAllLines(@"v1.txt") };
+string[] linesA = File.ReadAllLines(pathA);
 
 // TODO: 02 Charger le contenu texte du fichier B (indice: File.ReadAllLines...)
-string[] linesB = { File.ReadAllLines(@"v2.txt") };
+string[] linesB = File.ReadAllLines(pathB);
 
 // TODO: 03 Vérifier que les fichier ont le même nombre de lignes
-if (linesA != linesB)
+if (linesA.Length != linesB.Length)
 {
     Console.WriteLine("Erreur: les fichiers n'ont pas le même nombre de ligne");
     Environment.Exit(-2);
@@ -44,9 +46,9 @@ Console.WriteLine(">Fichiers chargés avec succés");
 // Une fonction de nettoyage reçoit un texte (une ligne de fichier) et renvoie cette même ligne adaptée
 // Il existe la fonction Replace sur les string...
 // Le caractère tabulation s’écrit \t
-Func<string, string> cleanSpaces = text => text;
-Func<string, string> cleanTabs = text => text;
-Func<string, string> enforceCase = text => text;
+Func<string, string> cleanSpaces = text => text.Replace(" ", "");
+Func<string, string> cleanTabs = text => text.Replace("\t", "");
+Func<string, string> enforceCase = text => text.ToUpper();
 
 /// OPTIONS DE NETTOYAGE
 Console.WriteLine("Choisir les options:");
@@ -67,7 +69,7 @@ bool ignoreCase = Console.ReadLine() == "o";
 List<LinesComparison> comparisons = new();
 
 // TODO: 07 Sélectionner les lignes qui ont des différences
-var diffLines = new Liste<LinesComparison>();
+var diffLines = new List<LinesComparison>();
 
 // TODO: 08 Afficher le nombre de lignes identiques et différentes entre les 2 fichiers
 
